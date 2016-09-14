@@ -6,6 +6,7 @@ var Enemy = function() {
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
+    
 };
 
 // Update the enemy's position, required method for game
@@ -34,14 +35,7 @@ var player = function(){
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 
-allEnemies = [
-    {
-        Enemy.render()
-    },
-    {
-        Enemy.update(dt)
-    }
-];
+allEnemies = [];
 
 
 
