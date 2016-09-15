@@ -19,7 +19,10 @@ Enemy.prototype.update = function(dt) {
 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    window.onload = function(){
+
+        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    };
 };
 
 // Now write your own player class
@@ -38,7 +41,9 @@ var player = function(){
 var allEnemies = [];
 
 
-
+player = {
+    "name": "images/char-boy.png";
+};
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
