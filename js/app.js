@@ -8,7 +8,7 @@ var Enemy = function( x, y ) {
     this.sprite = 'images/enemy-bug.png';
     this.x = x;
     this.y = y;
-    this.speed = 160;    
+    this.speed = 600;    
 
 };
 
