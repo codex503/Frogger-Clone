@@ -62,6 +62,7 @@ var allEnemies = [ new Enemy(100, 200), new Enemy(300, 130), new Enemy(200, 50)]
 
 
 
+
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function(e) {
@@ -71,6 +72,35 @@ document.addEventListener('keyup', function(e) {
         39: 'right',
         40: 'down'
     };
+
+    // booleans for pressed buttons
+var rightPressed = false;
+var leftPressed = false;
+var upPressed = false;
+var downPressed = false;
+
+    if(e.keyCode == 39) {
+        rightPressed = true;
+    }
+    else if(e.keyCode == 37) {
+        leftPressed = true;
+    } else if(e.keyCode == 40){
+      downPressed = true;
+    } else if(e.keyCode == 38){
+      upPressed = true;
+    }
+
+    if (rightPressed){
+      player.x += 101;
+    } else if (leftPressed){
+      player.x -= 101;
+    } else if (upPressed){
+      player.y -= 90;
+    } else if (downPressed){
+      player.y += 90;
+    }
+
+
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
