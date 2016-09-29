@@ -60,8 +60,11 @@ var player = new Player();
 // array to add enemies
 var allEnemies = [ new Enemy(100, 200), new Enemy(300, 130), new Enemy(200, 50)];
 
-
-
+// signalling the end of the game
+ if(player.y > 550){
+      alert("You win!");
+      document.location.reload();
+    }
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
