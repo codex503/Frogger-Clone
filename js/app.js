@@ -52,6 +52,20 @@ Player.prototype.render = function() {
    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
+Player.prototype.handleInput = function(keys){
+  if(keys == 'left' && this.x > 0){
+    this.x -= 101;
+  } else if (keys == 'right' && this.x < 400){
+    this.x += 101;
+  } else if (keys == 'down' && this.y < 500){
+    this.y += 83;
+  } else if (keys == 'up'){
+    this.y -= 83;
+  }
+  console.log(this.y);
+}
+
+
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
@@ -60,11 +74,7 @@ var player = new Player();
 // array to add enemies
 var allEnemies = [ new Enemy(100, 200), new Enemy(300, 130), new Enemy(200, 50)];
 
-// signalling the end of the game
- if(player.y > 550){
-      alert("You win!");
-      document.location.reload();
-    }
+
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
@@ -77,31 +87,31 @@ document.addEventListener('keyup', function(e) {
     };
 
     // booleans for pressed buttons
-var rightPressed = false;
-var leftPressed = false;
-var upPressed = false;
-var downPressed = false;
+// var rightPressed = false;
+// var leftPressed = false;
+// var upPressed = false;
+// var downPressed = false;
 
-    if(e.keyCode == 39) {
-        rightPressed = true;
-    }
-    else if(e.keyCode == 37) {
-        leftPressed = true;
-    } else if(e.keyCode == 40){
-      downPressed = true;
-    } else if(e.keyCode == 38){
-      upPressed = true;
-    }
+//     if(e.keyCode == 39) {
+//         rightPressed = true;
+//     }
+//     else if(e.keyCode == 37) {
+//         leftPressed = true;
+//     } else if(e.keyCode == 40){
+//       downPressed = true;
+//     } else if(e.keyCode == 38){
+//       upPressed = true;
+//     }
 
-    if (rightPressed){
-      player.x += 101;
-    } else if (leftPressed){
-      player.x -= 101;
-    } else if (upPressed){
-      player.y -= 90;
-    } else if (downPressed){
-      player.y += 90;
-    }
+//     if (rightPressed){
+//       player.x += 101;
+//     } else if (leftPressed){
+//       player.x -= 101;
+//     } else if (upPressed){
+//       player.y -= 90;
+//     } else if (downPressed){
+//       player.y += 90;
+//     }
 
 
 
