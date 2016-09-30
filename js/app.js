@@ -45,8 +45,10 @@ var Player = function(){
 };
 
 Player.prototype.update = function(dt){
-   if (Player.y < 51){
+  // for some reason this if statement does not work fix for another day.
+   if (Player.y <= 51){
      reset_game();
+     console.log("works");
    }
 };
 
