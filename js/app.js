@@ -45,24 +45,34 @@ var Player = function(){
 };
 
 Player.prototype.update = function(dt){
-
+   if (Player.y < 51){
+     reset_game();
+   }
 };
 
+// render player and bugs
 Player.prototype.render = function() {
    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
+// function to reset game
+Player.prototype.reset_game = function(){
+  this.y = 300;
+  this.x = 200;
+}
+
+// function to handle user input
 Player.prototype.handleInput = function(keys){
   if(keys == 'left' && this.x > 0){
     this.x -= 101;
   } else if (keys == 'right' && this.x < 400){
     this.x += 101;
-  } else if (keys == 'down' && this.y < 500){
+  } else if (keys == 'down' && this.y < 383){
     this.y += 83;
-  } else if (keys == 'up'){
+  } else if (keys == 'up' && this.y > 0){
     this.y -= 83;
   }
-  console.log(this.y);
+console.log(this.y);
 }
 
 
@@ -86,32 +96,7 @@ document.addEventListener('keyup', function(e) {
         40: 'down'
     };
 
-    // booleans for pressed buttons
-// var rightPressed = false;
-// var leftPressed = false;
-// var upPressed = false;
-// var downPressed = false;
-
-//     if(e.keyCode == 39) {
-//         rightPressed = true;
-//     }
-//     else if(e.keyCode == 37) {
-//         leftPressed = true;
-//     } else if(e.keyCode == 40){
-//       downPressed = true;
-//     } else if(e.keyCode == 38){
-//       upPressed = true;
-//     }
-
-//     if (rightPressed){
-//       player.x += 101;
-//     } else if (leftPressed){
-//       player.x -= 101;
-//     } else if (upPressed){
-//       player.y -= 90;
-//     } else if (downPressed){
-//       player.y += 90;
-//     }
+  
 
 
 
