@@ -44,11 +44,16 @@ var Player = function(){
   this.y = 300;
 };
 
+// function to reset game
+Player.prototype.reset_game = function(){
+  this.y = 300;
+  this.x = 200;
+};
+
 Player.prototype.update = function(dt){
-  // for some reason this if statement does not work fix for another day.
-   if (Player.y <= 51){
-     reset_game();
-     console.log("works");
+ 
+   if (this.y <= -31){
+     this.reset_game();
    }
 };
 
@@ -57,11 +62,7 @@ Player.prototype.render = function() {
    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-// function to reset game
-Player.prototype.reset_game = function(){
-  this.y = 300;
-  this.x = 200;
-}
+
 
 // function to handle user input
 Player.prototype.handleInput = function(keys){
