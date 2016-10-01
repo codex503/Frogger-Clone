@@ -1,11 +1,9 @@
 
 // Enemies our player must avoid
 var Enemy = function( x, y ) {
-    // Variables applied to each of our instances go here,
-    // we've provided one for you to get started
+    
 
-    // The image/sprite for our enemies, this uses
-    // a helper we've provided to easily load images
+    // The image/sprite for our enemies
     this.sprite = 'images/enemy-bug.png';
     this.x = x;
     this.y = y;
@@ -48,6 +46,7 @@ var Player = function(){
 Player.prototype.reset_game = function(){
   this.y = 300;
   this.x = 200;
+  alert("Congratulations! You win!")
 };
 
 Player.prototype.update = function(dt){
@@ -58,7 +57,7 @@ Player.prototype.update = function(dt){
 
 
 
-   if(this.y == Enemy.x){
+   if(this.y === Enemy.x){
     this.reset_game();
     console.log(this.y);
    }
