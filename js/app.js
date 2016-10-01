@@ -55,6 +55,13 @@ Player.prototype.update = function(dt){
    if (this.y <= -31){
      this.reset_game();
    }
+
+
+
+   if(this.y == Enemy.x){
+    this.reset_game();
+    console.log(this.y);
+   }
 };
 
 // render player and bugs
@@ -75,7 +82,7 @@ Player.prototype.handleInput = function(keys){
   } else if (keys == 'up' && this.y > 0){
     this.y -= 83;
   }
-console.log(this.y);
+  console.log(this.y);
 }
 
 
