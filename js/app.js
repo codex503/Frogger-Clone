@@ -85,7 +85,7 @@ console.log(this.y);
 // variable to render player
 var player = new Player();
 // array to add enemies
-var allEnemies = [ new Enemy(100, 200), new Enemy(300, 130), new Enemy(200, 50)];
+var allEnemies = [ new Enemy(100, 217), new Enemy(300, 134), new Enemy(200, 51)];
 
 
 
