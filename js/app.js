@@ -52,7 +52,7 @@ Player.prototype.win_Reset_Game = function(){
 // check for player collisions
 Player.prototype.checkCollisions = function() {
     for (i = 0; i < allEnemies.length; i++) {
-      if (allEnemies[i].x == Player.y) {
+      if (this.x < allEnemies[i].x + 50 && this.x + 50 > allEnemies[i].x && this.y < allEnemies[i].y + 75 && this.y > allEnemies[i].y + 75) {
         console.log("Collision!");
       }
     } 
