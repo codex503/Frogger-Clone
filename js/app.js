@@ -42,31 +42,35 @@ var Player = function(){
   this.y = 300;
 };
 
-// function to reset game
-Player.prototype.reset_game = function(){
+// function to reset game if player makes it to the river
+Player.prototype.win_Reset_Game = function(){
   this.y = 300;
   this.x = 200;
   alert("Congratulations! You win!")
 };
 
+Player.prototype.checkCollisions = function() {
+    for (i = 0; i < allEnemies.length; i++) {
+      if (allEnemies[i].x == Player.y) {
+        console.log("Collision!");
+      }
+    } 
+};
+
 Player.prototype.update = function(dt){
  
    if (this.y <= -31){
-     this.reset_game();
+     this.win_Reset_Game();
    }
 
-
-
-   if(this.y === Enemy.x){
-    this.reset_game();
-    console.log(this.y);
-   }
+   this.checkCollisions();
 };
 
 // render player and bugs
 Player.prototype.render = function() {
    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
+
 
 
 
