@@ -18,7 +18,7 @@ Enemy.prototype.update = function(dt) {
     // which will ensure the game runs at the same speed for
     // all computers.
     
-    // if statement that resets game when player reaches the water
+    
     if (this.x <  500 ) {
       this.x += dt * this.speed; 
     } else {
@@ -49,6 +49,7 @@ Player.prototype.win_Reset_Game = function(){
   alert("Congratulations! You win!")
 };
 
+// check for player collisions
 Player.prototype.checkCollisions = function() {
     for (i = 0; i < allEnemies.length; i++) {
       if (allEnemies[i].x == Player.y) {
