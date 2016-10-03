@@ -43,29 +43,34 @@ var Player = function(){
 };
 
 // function to reset game if player makes it to the river
-Player.prototype.win_Reset_Game = function(){
+Player.prototype.reset_game = function(){
   this.y = 300;
   this.x = 200;
-  alert("Congratulations! You win!")
+  
 };
 
-// check for player collisions
-Player.prototype.checkCollisions = function() {
-    for (i = 0; i < allEnemies.length; i++) {
-      if (this.x < allEnemies[i].x + 50 && this.x + 50 > allEnemies[i].x && this.y < allEnemies[i].y + 75 && this.y > allEnemies[i].y + 75) {
-        console.log("Collision!");
-      }
-    } 
-};
 
 Player.prototype.update = function(dt){
  
    if (this.y <= -31){
-     this.win_Reset_Game();
+     this.reset_game();
+     alert("Congratulations! You win!")
+   } else {
+   	this.checkCollisions();
    }
 
-   this.checkCollisions();
 };
+
+// check for player collisions
+Player.prototype.checkCollisions = function() {
+
+    for( i = 0; i < allEnemies.length; i ++){
+    	if (this.x < allEnemies[i].x + 30 && this.x > allEnemies[i].x - 30 && this.y < allEnemies[i].y + 45 && this.y > allEnemies[i].y - 45){
+    		this.reset_game();
+    	}
+    }
+};
+
 
 // render player and bugs
 Player.prototype.render = function() {
@@ -86,7 +91,7 @@ Player.prototype.handleInput = function(keys){
   } else if (keys == 'up' && this.y > 0){
     this.y -= 83;
   }
-  console.log(this.y);
+  console.log(this.x);
 }
 
 
