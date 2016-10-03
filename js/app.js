@@ -1,13 +1,14 @@
 
 // Enemies our player must avoid
-var Enemy = function( x, y ) {
-    
+var Enemy = function( x, y, speed) {
+    var max = 3500;
+    var min = 2500;
 
     // The image/sprite for our enemies
     this.sprite = 'images/enemy-bug.png';
     this.x = x;
     this.y = y;
-    this.speed = 400;    
+    var speed = this.speed = Math.round(Math.random() * (max - min + 1));    
 
 };
 
@@ -65,7 +66,7 @@ Player.prototype.update = function(dt){
 Player.prototype.checkCollisions = function() {
 
     for( i = 0; i < allEnemies.length; i ++){
-    	if (this.x < allEnemies[i].x + 30 && this.x > allEnemies[i].x - 30 && this.y < allEnemies[i].y + 45 && this.y > allEnemies[i].y - 45){
+    	if (this.x < allEnemies[i].x + 45 && this.x > allEnemies[i].x - 45 && this.y < allEnemies[i].y + 55 && this.y > allEnemies[i].y - 55){
     		this.reset_game();
     	}
     }
@@ -101,7 +102,7 @@ Player.prototype.handleInput = function(keys){
 // variable to render player
 var player = new Player();
 // array to add enemies
-var allEnemies = [ new Enemy(100, 217), new Enemy(300, 134), new Enemy(200, 51)];
+var allEnemies = [ new Enemy(100, 217, this.speed), new Enemy(300, 134, this.speed), new Enemy(200, 51, this.speed)];
 
 
 
